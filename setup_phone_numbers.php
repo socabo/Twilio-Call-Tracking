@@ -44,7 +44,7 @@
 		<body>
 			<div id="container">
 				<h1>Your Twilio Numbers</h1>
-				<? if (count($twilio_numbers)>0){ ?>
+				<?php if (count($twilio_numbers)>0){ ?>
 					<table id="rounded-corner">
 				    <thead>
 				    	<tr>
@@ -57,20 +57,20 @@
 					<?php foreach($response->ResponseXml->IncomingPhoneNumbers->IncomingPhoneNumber AS $number){ ?>
 						<tr>
 							<form method="POST">
-							<input type="hidden" name="Sid" value="<? echo($number->Sid);?>">
-							<td><? echo($number->PhoneNumber);?></td>
-							<td><input type="text" name="friendly_name" value="<? echo($number->FriendlyName);?>" size="30"></td>
-							<td><input type="text" value="<? echo($number->VoiceUrl);?>" size="60" name="url"> <input type="submit" value="Update"></td>
+							<input type="hidden" name="Sid" value="<?php echo($number->Sid);?>">
+							<td><?php echo($number->PhoneNumber);?></td>
+							<td><input type="text" name="friendly_name" value="<?php echo($number->FriendlyName);?>" size="30"></td>
+							<td><input type="text" value="<?php echo($number->VoiceUrl);?>" size="60" name="url"> <input type="submit" value="Update"></td>
 							</form>
 						</tr>
 						<?php } ?>
 		    		</tbody>
 				</table>
-				<? } else { ?>
+				<?php } else { ?>
 					Your account has not purchased any Twilio Incoming Numbers.  You may purchase numbers using the form below.
 					<br/><br/>Or, you can use your free trial by setting your Sandbox Voice URL to: <span id="sandbox"></span><br/>
 					You can change this by <a href="https://www.twilio.com/user/account" target="_blank">clicking here</a> and looking under the Developer Tools/Sandbox heading.
-				<? } ?>
+				<?php } ?>
 			<h1>Purchase a number</h1>
 			<table id="rounded-corner">
 		    <thead>

@@ -3,8 +3,9 @@
 	require "db.php";
 	define('AGENT_NUMBER', '8583829141'); //set this to the phone number you'd like calls forwarded to
 	$ApiVersion = "2010-04-01";
-	$AccountSid = "ACxxxxx";
-	$AuthToken = "xxxxxxxx";
+    require "./credentials.php";
+//	$AccountSid = "ACxxxxx";
+//	$AuthToken = "xxxxxxxx";
 
 	function format_phone($phone)
 	{

@@ -14,13 +14,13 @@
 	
 		function save_call() {
 			//http://www.twilio.com/docs/api/twiml/twilio_request#synchronous-request-parameters
-			$CallSid = $_REQUEST['CallSid'];
-			$AccountSid=$_REQUEST['AccountSid'];
-			$CallFrom=$_REQUEST['From'];
-			$CallTo=$_REQUEST['To'];
-			$CallStatus=$_REQUEST['CallStatus'];
-			$ApiVersion=$_REQUEST['ApiVersion'];
-			$Direction=$_REQUEST['Direction'];
+			$CallSid = isset($_REQUEST['CallSid']) ? $_REQUEST['CallSid'] : '';
+			$AccountSid= isset($_REQUEST['AccountSid']) ? $_REQUEST['AccountSid'] : '';
+			$CallFrom= isset($_REQUEST['From']) ? $_REQUEST['From'] : '';
+			$CallTo= isset($_REQUEST['To']) ? $_REQUEST['To'] : '';
+			$CallStatus= isset($_REQUEST['CallStatus']) ? $_REQUEST['CallStatus'] : '';
+			$ApiVersion= isset($_REQUEST['ApiVersion']) ? $_REQUEST['ApiVersion'] : '';
+			$Direction= isset($_REQUEST['Direction']) ? $_REQUEST['Direction'] : '';
 
 			if (isset($_REQUEST['FromCity'])){
 				$FromCity=$_REQUEST['FromCity'];
@@ -33,10 +33,10 @@
 				$FromZip="";
 				$FromCountry="";
 			}
-			$ToCity=$_REQUEST['ToCity'];
-			$ToState=$_REQUEST['ToState'];
-			$ToZip=$_REQUEST['ToZip'];
-			$ToCountry=$_REQUEST['ToCountry'];
+			$ToCity= isset($_REQUEST['ToCity']) ? $_REQUEST['ToCity'] : '';
+			$ToState= isset($_REQUEST['ToState']) ? $_REQUEST['ToState'] : '';
+			$ToZip= isset($_REQUEST['ToZip']) ? $_REQUEST['ToZip'] : '';
+			$ToCountry= isset($_REQUEST['ToCountry']) ? $_REQUEST['ToCountry'] : '';
 
 			$stmt = $this->db->prepare('INSERT INTO calls (DateCreated,CallSid,AccountSid,CallFrom,CallTo,CallStatus,ApiVersion,Direction,FromCity,FromState,FromZip,FromCountry,ToCity,ToState,ToZip,ToCountry) VALUES (DATETIME(\'now\',\'localtime\'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 			$vars=array($CallSid,$AccountSid,$CallFrom,$CallTo,$CallStatus,$ApiVersion,$Direction,$FromCity,$FromState,$FromZip,$FromCountry,$ToCity,$ToState,$ToZip,$ToCountry);

@@ -74,9 +74,9 @@
 				?>
 			    </tbody>
 				</table>
-			<? } else { ?>
+			<?php } else { ?>
 				You haven't received any calls yet.  Do you need to <a href="setup_phone_numbers.php">purchase and configure phone numbers?</a>
-			<? } ?>
+			<?php } ?>
 				
 			<div id="footer">
 				<h3><a href="setup_phone_numbers.php">setup phone numbers</a></h3>
